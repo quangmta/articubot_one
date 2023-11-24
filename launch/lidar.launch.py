@@ -5,6 +5,10 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 from ament_index_python.packages import get_package_share_directory
 
 def generate_launch_description():
+    
+    os.system("sudo chmod 777 /dev/ttyACM0")
+
+    # os.system("ros2 run tf2_ros static_transform_publisher 0.05 0.02 -0.05 0 0 0 camera_link laser_frame")
 
     return LaunchDescription([
 
