@@ -17,5 +17,6 @@ def generate_launch_description():
                                    'depth_module.profile': '424x240x6',
                                    'rgb_camera.profile': '320x240x6',                                   
                                    'align_depth.enable':'true'}.items()
+                                   
         )
     ])
