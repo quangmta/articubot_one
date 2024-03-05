@@ -13,8 +13,13 @@ def generate_launch_description():
             PythonLaunchDescriptionSource([os.path.join(
                 get_package_share_directory('realsense2_camera'),'launch','rs_launch.py'
             )]), launch_arguments={'pointcloud.enable':'true',
+                                   'pointcloud.ordered_pc': 'true',
                                    'depth_module.profile': '424x240x6',
+<<<<<<< HEAD
                                    'rgb_camera.profile': '320x240x6',
+=======
+                                   'rgb_camera.profile': '320x240x6',                                   
+>>>>>>> 4bce3494d43616f99c7cae361ae9fd675ab95f13
                                    'align_depth.enable':'true'}.items()
                                    
         )
