@@ -8,11 +8,7 @@
                 <param name="left_wheel_name">left_wheel_joint</param>
                 <param name="right_wheel_name">right_wheel_joint</param>
                 <param name="loop_rate">33.3333</param>
-<<<<<<< HEAD
-                <param name="device">/dev/ttyUSB0</param>
-=======
                 <param name="device">/dev/ttyTHS1</param>
->>>>>>> 4bce3494d43616f99c7cae361ae9fd675ab95f13
                 <param name="baud_rate">115200</param>
                 <param name="timeout">100</param>
                 <param name="enc_counts_per_rev">1320</param>
