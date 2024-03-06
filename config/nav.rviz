@@ -7,6 +7,7 @@ Panels:
         - /Global Options1
         - /TF1/Frames1
         - /TF1/Tree1
+        - /LaserScan1
         - /Camera1
         - /Camera1/Visibility1
       Splitter Ratio: 0.5833333134651184
@@ -194,7 +195,7 @@ Visualization Manager:
       Position Transformer: XYZ
       Selectable: true
       Size (Pixels): 3
-      Size (m): 0.009999999776482582
+      Size (m): 0.05000000074505806
       Style: Flat Squares
       Topic:
         Depth: 5
@@ -640,7 +641,7 @@ Visualization Manager:
   Value: true
   Views:
     Current:
-      Angle: -1.5850002765655518
+      Angle: 0.019998859614133835
       Class: rviz_default_plugins/TopDownOrtho
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
@@ -650,11 +651,11 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Scale: 52.88334655761719
+      Scale: 60.80777359008789
       Target Frame: <Fixed Frame>
       Value: TopDownOrtho (rviz_default_plugins)
-      X: -1.5083892345428467
-      Y: -2.863597869873047
+      X: 1.3791502714157104
+      Y: -2.4933202266693115
     Saved: ~
 Window Geometry:
   Camera:
