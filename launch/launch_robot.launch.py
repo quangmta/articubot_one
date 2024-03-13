@@ -20,6 +20,8 @@ def generate_launch_description():
     # Include the robot_state_publisher launch file, provided by our own package. Force sim time to be enabled
     # !!! MAKE SURE YOU SET THE PACKAGE NAME CORRECTLY !!!
 
+    os.system("sudo chmod 777 /dev/ttyTHS1")
+
     package_name='articubot_one' #<--- CHANGE ME
 
     rsp = IncludeLaunchDescription(
