@@ -23,11 +23,11 @@ def generate_launch_description():
                                    'align_depth.enable':'true'}.items()
                                    
         )
-        # ,
-        # Node(
-        #         package="imu_filter_madgwick",
-        #         executable="imu_filter_madgwick_node",
-        #         parameters=[{'use_mag': False}],
-        #         remappings=[('/imu/data_raw','/camera/imu')]
-        #     )
+        ,
+        Node(
+                package="imu_filter_madgwick",
+                executable="imu_filter_madgwick_node",
+                parameters=[{'use_mag': False}],
+                remappings=[('/imu/data_raw','/camera/imu')]
+            )
     ])
