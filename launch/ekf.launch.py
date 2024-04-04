@@ -31,6 +31,6 @@ def generate_launch_description():
             name='ekf_filter_node',
             output='screen',
             parameters=[os.path.join(get_package_share_directory("articubot_one"), 'config', 'ekf.yaml'),
-                        {'use_sim_time':True}],
+                        {'use_sim_time':False}],
            ),
 ])
