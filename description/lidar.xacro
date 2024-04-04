@@ -2,9 +2,9 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
     <joint name="laser_joint" type="fixed">
-        <parent link="camera_link"/>
+        <parent link="camera_color_frame"/>
         <child link="laser_frame"/>
-        <origin xyz="-0.0475 0 0.022" rpy="0 0 0"/>
+        <origin xyz="-0.0475 0 0.025" rpy="0 0 0"/>
     </joint>
 
     <link name="laser_frame">
