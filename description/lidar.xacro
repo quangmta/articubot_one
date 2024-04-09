@@ -2,7 +2,7 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
     <joint name="laser_joint" type="fixed">
-        <parent link="camera_link"/>
+        <parent link="camera_color_frame"/>
         <child link="laser_frame"/>
         <origin xyz="-0.0475 0 0.022" rpy="0 0 0"/>
     </joint>
@@ -50,8 +50,8 @@
                     </horizontal>
                 </scan>
                 <range>
-                    <min>0.1</min>
-                    <max>20</max>
+                    <min>0.06</min>
+                    <max>5.6</max>
                 </range>
             </ray>
             <plugin name="laser_controller" filename="libgazebo_ros_ray_sensor.so">

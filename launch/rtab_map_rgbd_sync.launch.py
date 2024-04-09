@@ -24,7 +24,7 @@
 #   SLAM:
 #   $ ros2 launch rtabmap_demos turtlebot3_rgbd_sync.launch.py
 #   OR
-#   $ ros2 launch rtabmap_launch rtabmap.launch.py visual_odometry:=false frame_id:=base_footprint subscribe_scan:=true  approx_sync:=true approx_rgbd_sync:=false odom_topic:=/odom args:="-d --RGBD/NeighborLinkRefining true --Reg/Strategy 1 --Reg/Force3DoF true --Grid/RangeMin 0.2" use_sim_time:=true rgbd_sync:=true rgb_topic:=/camera/image_raw depth_topic:=/camera/depth/image_raw camera_info_topic:=/camera/camera_info qos:=2
+#   $ ros2 launch rtabmap_launch rtabmap.launch.py visual_odometry:=false frame_id:=base_footprint subscribe_scan:=false  approx_sync:=true approx_rgbd_sync:=false odom_topic:=/odom args:="-d --RGBD/NeighborLinkRefining true --Reg/Strategy 1 --Reg/Force3DoF true --Grid/RangeMin 0.2" use_sim_time:=true rgbd_sync:=true rgb_topic:=/camera/color/image_raw depth_topic:=/estimated_depth camera_info_topic:=/camera/color/camera_info qos:=2
 #   $ ros2 run topic_tools relay /rtabmap/map /map
 #
 #   Navigation (install nav2_bringup package):
@@ -46,6 +46,7 @@ def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time')
     qos = LaunchConfiguration('qos')
     localization = LaunchConfiguration('localization')
+    queue = LaunchConfiguration('queue_size')
 
     parameters={
           'frame_id':'base_footprint',
@@ -56,6 +57,9 @@ def generate_launch_description():
           'qos_scan':qos,
           'qos_image':qos,
           'qos_imu':qos,
+          'queue_size':queue,
+          'approx_sync':True,
+        #   'approx_sync_max_interval':0.5,
           # RTAB-Map's parameters should be strings:
           'Reg/Strategy':'1',
           'Reg/Force3DoF':'true',
@@ -65,16 +69,22 @@ def generate_launch_description():
     }
 
     remappings=[
-          ('odom','/diff_cont/odom'),
-          ('rgb/image', '/camera/image_raw'),
-          ('rgb/camera_info', '/camera/camera_info'),
-          ('depth/image', '/camera/depth/image_raw')]
+          ('scan','/scan'),
+          ('odom','/odom'),
+        #   ('rgb/image', '/camera/color/image_raw'),
+          ('rgb/image', '/original_sync_rgb_image'),
+        #   ('rgb/image', '/rgb_image_sync'),
+          ('rgb/camera_info', '/camera/color/camera_info'),
+          ('depth/image', '/processed_depth_image'),
+        #   ('depth/image', '/original_sync_depth_image'),
+        #   ('depth/image', '/estimated_depth')
+        ]
 
     return LaunchDescription([
 
         # Launch arguments
         DeclareLaunchArgument(
-            'use_sim_time', default_value='true',
+            'use_sim_time', default_value='false',
             description='Use simulation (Gazebo) clock if true'),
         
         DeclareLaunchArgument(
@@ -84,11 +94,16 @@ def generate_launch_description():
         DeclareLaunchArgument(
             'localization', default_value='false',
             description='Launch in localization mode.'),
+        
+        DeclareLaunchArgument(
+            'queue_size', default_value='500',
+            description='Queue size.'),
 
         # Nodes to launch
         Node(
             package='rtabmap_sync', executable='rgbd_sync', output='screen',
-            parameters=[{'approx_sync':False, 'use_sim_time':use_sim_time, 'qos':qos}],
+            parameters=[{'approx_sync':True, 'use_sim_time':use_sim_time, 'qos':qos,
+                         'queue_size':queue}],
             remappings=remappings),
 
         # SLAM Mode:
