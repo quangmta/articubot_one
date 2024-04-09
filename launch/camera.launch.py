@@ -17,6 +17,7 @@ def generate_launch_description():
                                    'enable_gyro':'true',
                                    'enable_accel':'true',
                                    'unite_imu_method':'2',
+                                   'enable_motion_correction':'true',
                                 #    'pointcloud.ordered_pc': 'true',
                                    'depth_module.profile': '424x240x6',
                                    'rgb_camera.profile': '320x240x6',                                   

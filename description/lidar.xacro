@@ -4,7 +4,7 @@
     <joint name="laser_joint" type="fixed">
         <parent link="camera_color_frame"/>
         <child link="laser_frame"/>
-        <origin xyz="-0.0475 0 0.025" rpy="0 0 0"/>
+        <origin xyz="-0.0475 0 0.025" rpy="0 0.03844 -0.06579"/>
     </joint>
 
     <link name="laser_frame">
