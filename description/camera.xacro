@@ -4,7 +4,7 @@
     <joint name="camera_joint" type="fixed">
         <parent link="chassis"/>
         <child link="camera_color_frame"/>
-        <origin xyz="0.042 0 0.583" rpy="0 0 0"/>
+        <origin xyz="0.042 0 0.878" rpy="0 0 0"/>
     </joint>
 
     <link name="camera_color_frame">
