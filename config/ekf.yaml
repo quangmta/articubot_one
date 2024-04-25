@@ -171,7 +171,7 @@ ekf_filter_node:
                       false, false, false,
                       false, false, false,
                       false, false, true,
-                      true, false, false]
+                      false, false, false]
         
         #        [x_pos   , y_pos    , z_pos,
         #         roll    , pitch    , yaw,

@@ -24,7 +24,9 @@ def generate_launch_description():
                                 #    'pointcloud.ordered_pc': 'true',
                                    'depth_module.profile': '424x240x6',
                                    'rgb_camera.profile': '320x240x6',                                   
-                                   'align_depth.enable':'true'}.items()
+                                   'align_depth.enable':'true',
+                                   'global_time_enabled':'false',
+                                   'initial_reset':'true'}.items()
                                    
         )
         ,
