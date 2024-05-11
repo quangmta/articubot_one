@@ -51,6 +51,7 @@ def generate_launch_description():
     parameters={
           'frame_id':'base_footprint',
           'use_sim_time':use_sim_time,
+          'visual_odometry':True,
           'subscribe_rgbd':True,
           'subscribe_scan':True,
           'use_action_for_goal':True,
