@@ -2,9 +2,9 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
     <joint name="camera_joint" type="fixed">
-        <parent link="chassis"/>
+        <parent link="holder"/>
         <child link="camera_color_frame"/>
-        <origin xyz="0.042 0 0.613" rpy="0 -0.03844 0"/>
+        <origin xyz="0.042 0 0.03" rpy="0 -0.03844 0"/>
     </joint>
 
     <link name="camera_color_frame">
