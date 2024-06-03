@@ -74,7 +74,7 @@
 
     <link name="chassis">
         <visual>
-            <origin xyz = "0 0 0}"/>
+            <origin xyz = "0 0 0"/>
             <geometry>
                 <cylinder length="${chassis_length}" radius="${chassis_radius}"/>
             </geometry>
